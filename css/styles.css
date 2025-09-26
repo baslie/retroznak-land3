@@ -1,6 +1,5 @@
 /* Критический CSS для быстрой загрузки - inline в HTML */
-/* DaisyUI и Tailwind CSS импорты - defer загрузка */
-@import 'https://cdn.jsdelivr.net/npm/daisyui@5.1.23/dist/full.min.css';
+/* DaisyUI подключается через <link> в HTML, ниже — только кастомные стили */
 
 /* Кастомные CSS переменные для темы Ретрознак */
 :root {

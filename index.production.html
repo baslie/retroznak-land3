@@ -14,6 +14,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
+    <!-- DaisyUI подключаем из CDN отдельным <link> -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/daisyui@5.1.23/dist/full.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://cdn.jsdelivr.net/npm/daisyui@5.1.23/dist/full.min.css" rel="stylesheet"></noscript>
+
     <!-- Отложенная загрузка минифицированных стилей -->
     <link rel="preload" href="css/styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link href="css/styles.min.css" rel="stylesheet"></noscript>

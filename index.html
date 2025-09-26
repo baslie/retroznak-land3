@@ -61,9 +61,14 @@
         }
     </style>
 
-    <!-- Preconnect для оптимизации загрузки шрифтов -->
+    <!-- Preconnect для оптимизации загрузки шрифтов и DaisyUI -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+    <!-- DaisyUI грузим отдельным <link>, чтобы компоненты были стилизованы сразу -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/daisyui@5.1.23/dist/full.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://cdn.jsdelivr.net/npm/daisyui@5.1.23/dist/full.min.css" rel="stylesheet"></noscript>
 
     <!-- Отложенная загрузка некритических стилей (для продакшена используйте styles.min.css) -->
     <link rel="preload" href="css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
