@@ -1,0 +1,91 @@
+/* Критический CSS для быстрой загрузки - inline в HTML */
+/* DaisyUI и Tailwind CSS импорты - defer загрузка */
+@import 'https://cdn.jsdelivr.net/npm/daisyui@5.1.23/dist/full.min.css';
+
+/* Кастомные CSS переменные для темы Ретрознак */
+:root {
+  --color-primary: #f97316;
+  --color-primary-focus: #ea580c;
+  --color-secondary: #374151;
+  --color-accent: #f97316;
+  --color-neutral: #1f2937;
+  --color-base-100: #111827;
+  --color-base-200: #1f2937;
+  --color-base-300: #374151;
+  --color-base-content: #f9fafb;
+}
+
+/* Применение темы Ретрознак */
+[data-theme="retroznak"] {
+  color-scheme: dark;
+}
+
+/* Кастомные стили для исторической аутентичности */
+body {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  background-color: var(--color-base-100);
+  color: var(--color-base-content);
+}
+
+/* Стили для плавной навигации */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Кастомные стили для компонентов */
+.hero-title {
+  font-family: 'Georgia', serif;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+}
+
+.historical-text {
+  font-style: italic;
+  line-height: 1.6;
+}
+
+/* Адаптивные стили для мобильных устройств (320px+) */
+@media (max-width: 320px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .hero-title {
+    font-size: 1.5rem;
+  }
+}
+
+/* Стили для form элементов */
+.form-control {
+  margin-bottom: 1rem;
+}
+
+/* Стили для кнопок CTA */
+.btn-cta {
+  transition: all 0.3s ease;
+}
+
+.btn-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+}
+
+/* Lazy loading стили */
+img[data-loading="lazy"] {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+img[data-loading="lazy"].loaded {
+  opacity: 1;
+}
+
+/* Performance optimizations */
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}

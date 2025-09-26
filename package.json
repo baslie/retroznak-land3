@@ -1,0 +1,27 @@
+{
+  "name": "retroznak-land3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baslie/retroznak-land3.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/baslie/retroznak-land3/issues"
+  },
+  "homepage": "https://github.com/baslie/retroznak-land3#readme",
+  "dependencies": {
+    "daisyui": "^5.1.23",
+    "tailwindcss": "^4.1.13"
+  }
+}
