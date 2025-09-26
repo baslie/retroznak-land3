@@ -98,22 +98,32 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Анимация появления элементов при скролле
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
+    const animatedElements = document.querySelectorAll('[data-animate]');
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate-fade-in');
-            }
+    if ('IntersectionObserver' in window) {
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        animatedElements.forEach(el => {
+            el.classList.add('will-animate');
+            observer.observe(el);
         });
-    }, observerOptions);
-
-    // Добавляем наблюдение для карточек и секций
-    const animatedElements = document.querySelectorAll('.card, .timeline, .hero-content');
-    animatedElements.forEach(el => observer.observe(el));
+    } else {
+        animatedElements.forEach(el => {
+            el.classList.add('animate-fade-in');
+        });
+    }
 
     console.log('Ретрознак: основные скрипты загружены');
 });

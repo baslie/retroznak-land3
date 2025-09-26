@@ -61,16 +61,22 @@
         }
     </style>
 
-    <!-- Preconnect для оптимизации загрузки шрифтов -->
+    <!-- Preconnect для оптимизации загрузки шрифтов и DaisyUI -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+    <!-- DaisyUI подключаем с разбитого по пакетам CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daisyui@5.1.23/themes.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daisyui@5.1.23/daisyui.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daisyui@5.1.23/chunks.min.css">
 
     <!-- Отложенная загрузка некритических стилей (для продакшена используйте styles.min.css) -->
-    <link href="css/styles.css" rel="stylesheet" media="print" onload="this.media='all'; this.onload=null;">
+    <link rel="preload" href="css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link href="css/styles.css" rel="stylesheet"></noscript>
 
     <!-- Шрифты с display=swap для быстрой отрисовки -->
-    <link href="https://fonts.googleapis.com/css2?family=Georgia:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'; this.onload=null;">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Georgia:ital,wght@0,400;0,700;1,400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Georgia:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"></noscript>
 </head>
 <body class="bg-base-100 text-base-content">
@@ -126,28 +132,67 @@
     <!-- Hero секция -->
     <section class="hero min-h-screen bg-base-200" id="hero">
         <div class="hero-content text-center">
-            <div class="max-w-4xl">
-                <div class="badge badge-secondary mb-4">Проектируем и создаём</div>
-                <h1 class="text-4xl lg:text-6xl font-bold hero-title mb-6">ДОМОВЫЕ ЗНАКИ СОВЕТСКОЙ ЭПОХИ</h1>
-                <p class="py-6 text-lg lg:text-xl historical-text">Душевные адресные указатели из металла с подсветкой. От 1 990 рублей. Доставка в любую точку мира.</p>
-                <div class="card bg-base-100 shadow-xl mb-6 lg:float-right lg:w-80 lg:ml-6">
-                    <figure class="px-4 pt-4">
-                        <img src="images/retroznak-placeholder.svg" alt="Пример ретрознака на доме" class="rounded-lg w-full h-32 object-cover" loading="lazy">
-                    </figure>
-                    <div class="card-body">
-                        <p class="text-sm historical-text">Ретрознаки, популярные в 1930–50 гг. Именно такие адресные указатели вы видели в советских фильмах и на старых фотографиях.</p>
+            <div class="max-w-6xl mx-auto w-full">
+                <div class="flex flex-col lg:flex-row lg:items-start lg:gap-12">
+                    <div class="flex-1 space-y-6">
+                        <div class="badge badge-retro mb-4 inline-flex items-center justify-center px-4 py-2" data-animate>
+                            Проектируем и создаём
+                        </div>
+                        <h1 class="text-4xl lg:text-6xl font-bold hero-title" data-animate>
+                            ДОМОВЫЕ ЗНАКИ СОВЕТСКОЙ ЭПОХИ
+                        </h1>
+                        <p class="text-lg lg:text-xl historical-text" data-animate>
+                            Душевные адресные указатели из металла с подсветкой. От 1 990 рублей. Доставка в любую точку мира.
+                        </p>
+                        <div class="feature-grid text-left" data-animate>
+                            <div class="feature-tile" data-animate>
+                                <span class="feature-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h10M4 18h16" />
+                                    </svg>
+                                </span>
+                                <h3 class="text-xl font-semibold mb-2">Архивные шрифты</h3>
+                                <p class="text-sm opacity-80">Воссоздаём оригинальные гарнитуры 1930-х годов для подлинного звучания адреса.</p>
+                            </div>
+                            <div class="feature-tile" data-animate>
+                                <span class="feature-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12M6 12h12" />
+                                    </svg>
+                                </span>
+                                <h3 class="text-xl font-semibold mb-2">Ремесленный металл</h3>
+                                <p class="text-sm opacity-80">Используем порошковую покраску и ручную шлифовку кромок для долговечности.</p>
+                            </div>
+                            <div class="feature-tile" data-animate>
+                                <span class="feature-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </span>
+                                <h3 class="text-xl font-semibold mb-2">Гарантия 5 лет</h3>
+                                <p class="text-sm opacity-80">Контролируем климатическую стойкость и даём расширенную гарантию на покрытие.</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2" data-animate>
+                            <a href="#catalog" class="btn btn-primary btn-lg btn-cta">Выбрать модель</a>
+                            <button class="btn btn-secondary btn-lg" onclick="openContactModal()">Заказать бесплатный макет</button>
+                        </div>
                     </div>
-                </div>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-                    <a href="#catalog" class="btn btn-primary btn-lg btn-cta">Выбрать модель</a>
-                    <button class="btn btn-secondary btn-lg" onclick="openContactModal()">Заказать бесплатный макет</button>
+                    <div class="card bg-base-100 shadow-2xl lg:w-80" data-animate>
+                        <figure class="px-4 pt-4">
+                            <img src="images/retroznak-placeholder.svg" alt="Пример ретрознака на доме" class="rounded-lg w-full h-32 object-cover" loading="lazy">
+                        </figure>
+                        <div class="card-body">
+                            <p class="text-sm historical-text">Ретрознаки, популярные в 1930–50 гг. Именно такие адресные указатели вы видели в советских фильмах и на старых фотографиях.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- История (Timeline) -->
-    <section class="bg-base-100 py-16" id="history">
+    <section class="bg-base-100 py-16" id="history" data-animate>
         <div class="container mx-auto px-4">
             <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12 hero-title">История, которая украсит ваш дом</h2>
 
@@ -202,7 +247,7 @@
     </section>
 
     <!-- Применение и сегменты -->
-    <section class="bg-base-200 py-16" id="applications">
+    <section class="bg-base-200 py-16" id="applications" data-animate>
         <div class="container mx-auto px-4">
             <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12 hero-title">Ретрознаки подойдут практически всем</h2>
 
@@ -244,7 +289,7 @@
     </section>
 
     <!-- Товарная матрица -->
-    <section class="bg-base-100 py-16" id="catalog">
+    <section class="bg-base-100 py-16" id="catalog" data-animate>
         <div class="container mx-auto px-4">
             <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12 hero-title">Выберите свой ретрознак</h2>
 
@@ -331,7 +376,7 @@
     </section>
 
     <!-- Производство -->
-    <section class="bg-base-200 py-16" id="production">
+    <section class="bg-base-200 py-16" id="production" data-animate>
         <div class="container mx-auto px-4">
             <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12 hero-title">От эскиза до готового знака</h2>
 
@@ -417,7 +462,7 @@
     </section>
 
     <!-- Отзывы -->
-    <section class="bg-base-100 py-16" id="reviews">
+    <section class="bg-base-100 py-16" id="reviews" data-animate>
         <div class="container mx-auto px-4">
             <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12 hero-title">Более 3000 довольных владельцев ретрознаков</h2>
 
@@ -481,7 +526,7 @@
     </section>
 
     <!-- Как оформить заказ -->
-    <section class="bg-base-200 py-16" id="order-process">
+    <section class="bg-base-200 py-16" id="order-process" data-animate>
         <div class="container mx-auto px-4">
             <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12 hero-title">Как получить свой ретрознак за 1-2 недели?</h2>
 
@@ -527,7 +572,7 @@
     </section>
 
     <!-- FAQ -->
-    <section class="bg-base-100 py-16" id="faq">
+    <section class="bg-base-100 py-16" id="faq" data-animate>
         <div class="container mx-auto px-4">
             <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12 hero-title">Ответы на главные вопросы</h2>
 
@@ -589,7 +634,7 @@
     </section>
 
     <!-- Финальный призыв -->
-    <section class="bg-base-200 py-16" id="final-cta">
+    <section class="bg-base-200 py-16" id="final-cta" data-animate>
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-3xl lg:text-4xl font-bold mb-6 hero-title">Превратите адрес в часть семейной истории</h2>
             <p class="text-lg mb-8 historical-text max-w-2xl mx-auto">Получите макет бесплатно и забронируйте производство на удобную дату</p>
