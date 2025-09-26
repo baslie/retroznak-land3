@@ -27,6 +27,27 @@ body {
   color: var(--color-base-content);
 }
 
+/* Состояния для анимаций появления */
+.will-animate {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.will-animate.animate-fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .will-animate,
+  .will-animate.animate-fade-in {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 /* Стили для плавной навигации */
 html {
   scroll-behavior: smooth;
@@ -37,6 +58,19 @@ html {
   font-family: 'Georgia', serif;
   font-weight: bold;
   letter-spacing: 0.05em;
+}
+
+.badge-retro {
+  background: linear-gradient(135deg, #f97316, #fb923c);
+  color: #111827;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: none;
+}
+
+.badge-retro::before {
+  display: none;
 }
 
 .historical-text {
@@ -88,4 +122,35 @@ img[data-loading="lazy"].loaded {
 img {
   max-width: 100%;
   height: auto;
+}
+
+.feature-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .feature-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.feature-tile {
+  background: rgba(17, 24, 39, 0.75);
+  border: 1px solid rgba(249, 115, 22, 0.35);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  backdrop-filter: blur(6px);
+}
+
+.feature-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+  background: rgba(249, 115, 22, 0.15);
+  color: #fb923c;
+  margin-bottom: 1rem;
 }
