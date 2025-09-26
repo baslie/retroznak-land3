@@ -1,1 +1,29 @@
-
+{
+  "permissions": {
+    "allow": [
+      "mcp__context7__resolve-library-id",
+      "mcp__context7__get-library-docs",
+      "Bash(..specifyscriptspowershellcreate-new-feature.ps1 -Json \"смотри задачи и пожелания в @prompt.md\")",
+      "Bash(powershell.exe:*)",
+      "Bash(powershell:*)",
+      "Bash(dir \"C:\\Users\\Roman\\Desktop\\retroznak-land3\\specs\\001-prompt-md\\contracts\")",
+      "Bash(if not exist css mkdir css)",
+      "Bash(npm init:*)",
+      "Bash(npm install:*)",
+      "Bash(code --add-mcp '{\"\"name\"\":\"\"playwright\"\",\"\"command\"\":\"\"npx\"\",\"\"args\"\":[\"\"@playwright/mcp@latest\"\"]}')",
+      "Bash(dir)",
+      "Bash(dir backend)",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__playwright__browser_click",
+      "mcp__playwright__browser_evaluate",
+      "Bash(dir:*)",
+      "Bash(git checkout:*)",
+      "Bash(git commit:*)",
+      "Bash(git add:*)",
+      "Bash(git push:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
